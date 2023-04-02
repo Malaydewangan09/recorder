@@ -43,4 +43,5 @@ These instructions will guide you through setting up the project on your local m
 
 
 ### Screenshot
-"C:\Users\Lenovo\Pictures\Screenshots\Screenshot 2023-03-10 234521.png"
+<img src="https://github.com/Malaydewangan09/recorder/blob/master/Screenshot%202023-04-02%20133222.png" alt="Description of your image">
+
