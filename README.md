@@ -42,3 +42,5 @@ These instructions will guide you through setting up the project on your local m
 6. Go to your AWS account and check screenrecordingtest bucket you will see files getting uploaded there.
 
 
+### Screenshot
+"C:\Users\Lenovo\Pictures\Screenshots\Screenshot 2023-03-10 234521.png"
