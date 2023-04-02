@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Video</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column; /* add this line to display logo above button */
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    img {
+        height: 200px; /* increase the height of the logo */
+        margin-bottom: 20px; /* add some margin to separate it from the button */
+    }
+    #buttonContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #uploadBtn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    #uploadBtn:hover {
+        background-color: #3e8e41;
+    }
+
+     #stopBtn {
+            background-color: red; /* change the background color to red */
+            color: white;
+            border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        }
+
+        #stopBtn:hover {
+            background-color: #8b0000; /* change the hover background color */
+        }
+</style>
+</head>
+<body>
+<img src="Logo Color.png" alt="Logo">
+<div id="buttonContainer">
+    <button id="uploadBtn">Record</button>
+    <button id="stopBtn">Stop</button>
+</div>
+
+<script>
+      const uploadBtn = document.getElementById("uploadBtn");
+const stopBtn = document.getElementById("stopBtn"); // add a reference to the Stop button
+
+let recording = false; // add a variable to track if recording is in progress
+
+uploadBtn.addEventListener("click", startRecording); // change event listener to startRecording function
+stopBtn.addEventListener("click", stopRecording); // add event listener to stopRecording function
+
+function startRecording() {
+    if (!recording) {
+        fetch('/startRecording', { method: 'POST' })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            recording = true; // update recording status
+            console.log('Recording started');
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+    }
+}
+
+function stopRecording() {
+    if (recording) {
+        fetch('/stopRecording', { method: 'POST' })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            recording = false; // update recording status
+            console.log('Recording stopped');
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+    }
+}
+
+    </script>
+</body>
+</html>
